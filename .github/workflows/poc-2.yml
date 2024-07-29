@@ -12,11 +12,11 @@ jobs:
       - name: Auto Approve Altera PR
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.GH_PAT }}                        # Altera Faceless Account PAT
+          github-token: ${{ secrets.GH_PAT }}                        // Altera Faceless Account PAT
           script: |
-            const alteraTeam = ['JaronBauers', 'Fake-User']          // Array of Altera Team members who can use auto-approval
+            const alteraTeam = ['JaronBauers', 'Fake-User'];          // Array of Altera Team members who can use auto-approval
             
-            if(alteraTeam.includes(context.payload.pull_request.user.login) {
+            if(alteraTeam.includes(context.payload.pull_request.user.login)) {
               // Approve the PR
               github.rest.pulls.createReview({
                 owner: context.payload.repository.owner.login,          // org:  1s
