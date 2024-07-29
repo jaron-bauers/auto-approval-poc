@@ -3,8 +3,7 @@ name: Auto Approval POF - 2
 on:
   workflow_dispatch:
   pull_request:
-    types: 
-      - opened
+    types: [opened, edited]
 
 jobs:
   onboard_repos:
@@ -22,6 +21,6 @@ jobs:
               repo: context.payload.repository.name,                  // inventory
               pull_number: context.payload.number,
               event: 'approve',
-              comments[].path: '???',
-              comments[].body: 'APPROVED'
+              comments['???'].path,
+              comments['APPROVED'].body
               });
