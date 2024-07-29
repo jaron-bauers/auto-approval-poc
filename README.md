@@ -8,6 +8,6 @@ The webhook/action would be listening to the "PR opened event" which would trigg
 * and any other further validation needed...
 
 ## Actions Auto-Approaval Implementation
-Here is the github actions altera github actions implementation [HERE](https://github.com/jaron-bauers/auto-approval-poc/blob/main/.github/workflows/poc-2.yml). 
+Here is the github action altera inventory auto approval implementation [HERE](https://github.com/jaron-bauers/auto-approval-poc/blob/main/.github/workflows/poc-2.yml). 
 
-`NOTE: The webhook could be implemented the same exact way, but instead of an event listener it would be a webhook and the create a review api call would be a curl command within a script on a VM that the webhook payload is being sent to.`
+`NOTE: The webhook would be implemented the same exact way, but instead of an actions event listener it would be a webhook event listener and the "create a review" api call would be a curl command within a script on a VM where the webhook payload is being sent to.`
