@@ -16,3 +16,12 @@ jobs:
           github-token: ${{ secrets.GH_PAT }}
           script: |
             console.log(context.payload);
+
+            octokit.rest.pulls.createReview({
+              owner: context.payload.repository.owner.login,          // org
+              repo: context.payload.repository.name,                  // inventory
+              pull_number: context.payload.number,
+              event: 'approve',
+              comments[].path: '???',
+              comments[].body: 'APPROVED'
+              });
