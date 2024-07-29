@@ -1,18 +1,27 @@
 name: Auto Approval POF - 2
 
 on:
-  workflow_dispatch:
-  pull_request:
-    types: 
-      - opened
+  pull_request_target:
+    types: [opened, edited]
 
 jobs:
-  onboard_repos:
+  auto_approval:
+    if: startsWith(github.head_ref, 'user/altera-approver/')
     runs-on: ubuntu-latest
     steps:
-      - name: Approve PR
+      - name: Auto Approve Altera PR
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GH_PAT }}
           script: |
-            console.log(context.payload);
+            const alteraTeam = ['JaronBauers', 'Fake-User'];          // Array of Altera Team members who can use auto-approval
+            
+            if(alteraTeam.includes(context.payload.pull_request.user.login)) {
+              // Approve the PR
+              github.rest.pulls.createReview({
+                owner: context.payload.repository.owner.login,          // org:  1s
+                repo: context.payload.repository.name,                  // repo: inventory
+                pull_number: context.payload.number,
+                event: 'APPROVE'
+              });
+            }
