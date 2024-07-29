@@ -3,11 +3,10 @@ name: Auto Approval POF - 2
 on:
   pull_request:
     types: [opened, edited]
-    branches:
-      - 'user/altera-approver/**'
 
 jobs:
-  onboard_repos:
+  auto_approval:
+    if: startsWith(github.head_ref, 'user/altera-approver/')
     runs-on: ubuntu-latest
     steps:
       - name: Auto Approve Altera PR
