@@ -7,3 +7,9 @@ To achieve auto approval on Altera PR requests to Inventory we can either utiliz
 Here is the github actions altera github actions implementation [HERE](https://github.com/jaron-bauers/auto-approval-poc/blob/main/.github/workflows/poc-2.yml). 
 
 `NOTE: The webhook could be implemented the same exact way, but instead of an event listener it would be a webhook and the create a review api call would be a curl command within a script on a VM that the webhook payload is being sent to.`
+
+
+
+
+
+
