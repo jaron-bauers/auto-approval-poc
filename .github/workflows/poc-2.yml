@@ -20,7 +20,5 @@ jobs:
               owner: context.payload.repository.owner.login,          // org
               repo: context.payload.repository.name,                  // inventory
               pull_number: context.payload.number,
-              event: 'approve',
-              comments['???'].path,
-              comments['APPROVED'].body
+              event: 'APPROVE'
             });
