@@ -1,11 +1,11 @@
-name: Auto Approval POF
+name: Auto Approval POF - 2
 
 on:
   pull_request:
     types: 
       - opened
     branches:
-      - 'users/altera-approver/**'
+      - 'user/altera-approver/**'
 
 jobs:
   onboard_repos:
